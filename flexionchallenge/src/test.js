@@ -4,38 +4,30 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useState, useEffect, useRef } from 'react';
+import { useState } from "react";
 import Question from './question';
 
 function Test() {
-
-  
-  const [test, setTest] = useState([]);
-
-  setTest(
-    input: "",
-    unitOfMeasurement= "",
-    targetUnit= "",
-    tudentResponse= "",
-  )
+  const [test, setTest] = useState({question: {
+    input : "",
+    unitOfMeasurement : "",
+    targetUnit : "",
+    studentResponse : "",
+  }});
 
   return (
     <Container>
-      <Form>
-        <Row>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Student Name</Form.Label>
-            <Form.Control type="name" placeholder="Student" />
-          </Form.Group>
-        </Row>
-        <Question data={test}>
-          </Question>
-        <Row>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </Row>
-      </Form>
+      <Row>
+        <h2>
+          Test for: 
+          <input type="text" default="Student Name">
+          </input>
+        </h2>
+      </Row>
+
+      <Question data={test}>        
+      </Question>
+
     </Container>
   );
 }
