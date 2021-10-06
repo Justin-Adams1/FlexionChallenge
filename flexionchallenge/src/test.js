@@ -20,15 +20,10 @@ function Test() {
       <Row>
         <h2>
           Test for:
-          <input type="textarea" onChange={enterName}/>
+          <input type="textarea" onChange={enterName} />
         </h2>
       </Row>
-      {isSelected?
-        <Question/>
-        :
-        <>
-        </>
-      }
+      {isSelected ? <Question /> : <></>}
     </Container>
   );
 }
