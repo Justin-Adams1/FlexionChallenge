@@ -1,18 +1,13 @@
 import "./App.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import { useState } from "react";
 import Question from "./question";
 
 function Test() {
-
-  const [numberOfQuestions, setNumberOfQuestions] = useState(0);
   const [isSelected, setIsSelected] = useState(false);
-  const counter = 0;
 
-
-  const questionSelect = (event) => {
+  const enterName = (event) => {
     setIsSelected(true);
   };
 
@@ -25,7 +20,7 @@ function Test() {
       <Row>
         <h2>
           Test for:
-          <input type="textarea" onChange={questionSelect}/>
+          <input type="textarea" onChange={enterName}/>
         </h2>
       </Row>
       {isSelected?

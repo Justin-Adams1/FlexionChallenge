@@ -42,47 +42,48 @@ function Test(props) {
   const [result5, setResult5] = useState();
 
   const convertProblems = () => {
-    setAnswer1((convert(question1a).from(question1b).to(question1c)).toFixed(2));
-        if(answer1 === question1d){
-            setResult1("Correct");
-        }
-        else
-            setResult1("Incorrect");
-        console.log("question1d", question1d);
-        console.log("answer1", answer1);
-    setAnswer2(convert(question2a).from(question2b).to(question2c).toFixed(2));
-    if(answer2 === question2d){
+    try {
+      setAnswer1(
+        convert(question1a).from(question1b).to(question1c).toFixed(2)
+      );
+      if (answer1 === question1d) {
+        setResult1("Correct");
+      } else setResult1("Incorrect");
+      console.log("question1d", question1d);
+      console.log("answer1", answer1);
+      setAnswer2(
+        convert(question2a).from(question2b).to(question2c).toFixed(2)
+      );
+      if (answer2 === question2d) {
         setResult2("Correct");
-    }
-    else
-        setResult2("Incorrect");
-    setAnswer3(convert(question3a).from(question3b).to(question3c).toFixed(2));
-    if(answer3 === question3d){
+      } else setResult2("Incorrect");
+      setAnswer3(
+        convert(question3a).from(question3b).to(question3c).toFixed(2)
+      );
+      if (answer3 === question3d) {
         setResult3("Correct");
-    }
-    else
-        setResult3("Incorrect");
-    setAnswer4(convert(question4a).from(question4b).to(question4c).toFixed(2));
-    if(answer4 === question4d){
+      } else setResult3("Incorrect");
+      setAnswer4(
+        convert(question4a).from(question4b).to(question4c).toFixed(2)
+      );
+      if (answer4 === question4d) {
         setResult4("Correct");
-    }
-    else
-        setResult4("Incorrect");
-    setAnswer5(convert(question5a).from(question5b).to(question5c).toFixed(2));
-    if(answer5 === question5d){
+      } else setResult4("Incorrect");
+      setAnswer5(
+        convert(question5a).from(question5b).to(question5c).toFixed(2)
+      );
+      if (answer5 === question5d) {
         setResult5("Correct");
-    }
-    else
-        setResult5("Incorrect");
+      } else setResult5("Incorrect");
+    } catch (error) {}
   };
 
-  useEffect(() =>{
-      convertProblems();
-  })
+  useEffect(() => {
+    convertProblems();
+  });
 
   return (
     <Container>
-
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -106,8 +107,9 @@ function Test(props) {
             <td>
               <select
                 list="unitOfMeasurement"
-                onChange={(e) => setQuestion1b(e.target.value)}>      
-                <option value=""></option>                  
+                onChange={(e) => setQuestion1b(e.target.value)}
+              >
+                <option value=""></option>
                 <option value="K">Kelvin</option>
                 <option value="C">Celsius</option>
                 <option value="F">Fahrenheit</option>
@@ -121,21 +123,39 @@ function Test(props) {
               </select>
             </td>
             <td>
-              <select
-                list="unitOfMeasurement"
-                onChange={(e) => setQuestion1c(e.target.value)}>     
-                <option value=""></option>                   
-                <option value="K">Kelvin</option>
-                <option value="C">Celsius</option>
-                <option value="F">Fahrenheit</option>
-                <option value="R">Rankine</option>
-                <option value="l">Liter</option>
-                <option value="Tbs">Tablespoons</option>
-                <option value="in3">Cubic Inches</option>
-                <option value="cup">Cup</option>
-                <option value="ft3">Cubic Feet</option>
-                <option value="gal">Gallons</option>
-              </select>
+              {(question1b === "K" ||
+                question1b === "C" ||
+                question1b === "F" ||
+                question1b === "R") && (
+                <select
+                  list="unitOfMeasurement"
+                  onChange={(e) => setQuestion1c(e.target.value)}
+                >
+                  <option value=""></option>
+                  <option value="K">Kelvin</option>
+                  <option value="C">Celsius</option>
+                  <option value="F">Fahrenheit</option>
+                  <option value="R">Rankine</option>
+                </select>
+              )}
+              {(question1b === "l" ||
+                question1b === "Tbs" ||
+                question1b === "in3" ||
+                question1b === "cup" ||
+                question1b === "ft3" ||
+                question1b === "gal") && (
+                <select
+                  list="unitOfMeasurement"
+                  onChange={(e) => setQuestion1c(e.target.value)}
+                >
+                  <option value="l">Liter</option>
+                  <option value="Tbs">Tablespoons</option>
+                  <option value="in3">Cubic Inches</option>
+                  <option value="cup">Cup</option>
+                  <option value="ft3">Cubic Feet</option>
+                  <option value="gal">Gallons</option>
+                </select>
+              )}
             </td>
             <td>
               <input
@@ -143,9 +163,7 @@ function Test(props) {
                 onChange={(e) => setQuestion1d(e.target.value)}
               />
             </td>
-            {question1d !== "" &&
-                <h4>{result1}</h4>
-            }
+            {question1d !== "" && <h4>{result1}</h4>}
           </tr>
           <tr>
             <td>1</td>
@@ -158,8 +176,9 @@ function Test(props) {
             <td>
               <select
                 list="unitOfMeasurement"
-                onChange={(e) => setQuestion2b(e.target.value)}>   
-                <option value=""></option>         
+                onChange={(e) => setQuestion2b(e.target.value)}
+              >
+                <option value=""></option>
                 <option value="K">Kelvin</option>
                 <option value="C">Celsius</option>
                 <option value="F">Fahrenheit</option>
@@ -173,21 +192,39 @@ function Test(props) {
               </select>
             </td>
             <td>
-              <select
-                list="unitOfMeasurement"
-                onChange={(e) => setQuestion2c(e.target.value)}>       
-                <option value=""></option>                 
-                <option value="K">Kelvin</option>
-                <option value="C">Celsius</option>
-                <option value="F">Fahrenheit</option>
-                <option value="R">Rankine</option>
-                <option value="l">Liter</option>
-                <option value="Tbs">Tablespoons</option>
-                <option value="in3">Cubic Inches</option>
-                <option value="cup">Cup</option>
-                <option value="ft3">Cubic Feet</option>
-                <option value="gal">Gallons</option>
-              </select>
+              {(question2b === "K" ||
+                question2b === "C" ||
+                question2b === "F" ||
+                question2b === "R") && (
+                <select
+                  list="unitOfMeasurement"
+                  onChange={(e) => setQuestion2c(e.target.value)}
+                >
+                  <option value=""></option>
+                  <option value="K">Kelvin</option>
+                  <option value="C">Celsius</option>
+                  <option value="F">Fahrenheit</option>
+                  <option value="R">Rankine</option>
+                </select>
+              )}
+              {(question2b === "l" ||
+                question2b === "Tbs" ||
+                question2b === "in3" ||
+                question2b === "cup" ||
+                question2b === "ft3" ||
+                question2b === "gal") && (
+                <select
+                  list="unitOfMeasurement"
+                  onChange={(e) => setQuestion2c(e.target.value)}
+                >
+                  <option value="l">Liter</option>
+                  <option value="Tbs">Tablespoons</option>
+                  <option value="in3">Cubic Inches</option>
+                  <option value="cup">Cup</option>
+                  <option value="ft3">Cubic Feet</option>
+                  <option value="gal">Gallons</option>
+                </select>
+              )}
             </td>
             <td>
               <input
@@ -195,9 +232,7 @@ function Test(props) {
                 onChange={(e) => setQuestion2d(e.target.value)}
               />
             </td>
-            {question2d !== "" &&
-                <h4>{result2}</h4>
-            }
+            {question2d !== "" && <h4>{result2}</h4>}
           </tr>
           <tr>
             <td>3</td>
@@ -210,8 +245,9 @@ function Test(props) {
             <td>
               <select
                 list="unitOfMeasurement"
-                onChange={(e) => setQuestion3b(e.target.value)}>      
-                <option value=""></option>                  
+                onChange={(e) => setQuestion3b(e.target.value)}
+              >
+                <option value=""></option>
                 <option value="K">Kelvin</option>
                 <option value="C">Celsius</option>
                 <option value="F">Fahrenheit</option>
@@ -225,33 +261,48 @@ function Test(props) {
               </select>
             </td>
             <td>
-              <select
-                list="unitOfMeasurement"
-                onChange={(e) => setQuestion3c(e.target.value)}>     
-                <option value=""></option>                   
-                <option value="K">Kelvin</option>
-                <option value="C">Celsius</option>
-                <option value="F">Fahrenheit</option>
-                <option value="R">Rankine</option>
-                <option value="l">Liter</option>
-                <option value="Tbs">Tablespoons</option>
-                <option value="in3">Cubic Inches</option>
-                <option value="cup">Cup</option>
-                <option value="ft3">Cubic Feet</option>
-                <option value="gal">Gallons</option>
-              </select>
+              {(question3b === "K" ||
+                question3b === "C" ||
+                question3b === "F" ||
+                question3b === "R") && (
+                <select
+                  list="unitOfMeasurement"
+                  onChange={(e) => setQuestion3c(e.target.value)}
+                >
+                  <option value=""></option>
+                  <option value="K">Kelvin</option>
+                  <option value="C">Celsius</option>
+                  <option value="F">Fahrenheit</option>
+                  <option value="R">Rankine</option>
+                </select>
+              )}
+              {(question3b === "l" ||
+                question3b === "Tbs" ||
+                question3b === "in3" ||
+                question3b === "cup" ||
+                question3b === "ft3" ||
+                question3b === "gal") && (
+                <select
+                  list="unitOfMeasurement"
+                  onChange={(e) => setQuestion3c(e.target.value)}
+                >
+                  <option value="l">Liter</option>
+                  <option value="Tbs">Tablespoons</option>
+                  <option value="in3">Cubic Inches</option>
+                  <option value="cup">Cup</option>
+                  <option value="ft3">Cubic Feet</option>
+                  <option value="gal">Gallons</option>
+                </select>
+              )}
             </td>
             <td>
-              
-            <input
+              <input
                 type="textarea"
                 onChange={(e) => setQuestion3d(e.target.value)}
               ></input>
-              </td>
-            {question3d !== "" &&
-                <h4>{result3}</h4>
-            }
-            </tr>
+            </td>
+            {question3d !== "" && <h4>{result3}</h4>}
+          </tr>
           <tr>
             <td>4</td>
             <td>
@@ -263,8 +314,9 @@ function Test(props) {
             <td>
               <select
                 list="unitOfMeasurement"
-                onChange={(e) => setQuestion4b(e.target.value)}>      
-                <option value=""></option>                  
+                onChange={(e) => setQuestion4b(e.target.value)}
+              >
+                <option value=""></option>
                 <option value="K">Kelvin</option>
                 <option value="C">Celsius</option>
                 <option value="F">Fahrenheit</option>
@@ -278,33 +330,48 @@ function Test(props) {
               </select>
             </td>
             <td>
-              <select
-                list="unitOfMeasurement"
-                onChange={(e) => setQuestion4c(e.target.value)}>     
-                <option value=""></option>                   
-                <option value="K">Kelvin</option>
-                <option value="C">Celsius</option>
-                <option value="F">Fahrenheit</option>
-                <option value="R">Rankine</option>
-                <option value="l">Liter</option>
-                <option value="Tbs">Tablespoons</option>
-                <option value="in3">Cubic Inches</option>
-                <option value="cup">Cup</option>
-                <option value="ft3">Cubic Feet</option>
-                <option value="gal">Gallons</option>
-              </select>
+              {(question4b === "K" ||
+                question4b === "C" ||
+                question4b === "F" ||
+                question4b === "R") && (
+                <select
+                  list="unitOfMeasurement"
+                  onChange={(e) => setQuestion4c(e.target.value)}
+                >
+                  <option value=""></option>
+                  <option value="K">Kelvin</option>
+                  <option value="C">Celsius</option>
+                  <option value="F">Fahrenheit</option>
+                  <option value="R">Rankine</option>
+                </select>
+              )}
+              {(question4b === "l" ||
+                question4b === "Tbs" ||
+                question4b === "in3" ||
+                question4b === "cup" ||
+                question4b === "ft3" ||
+                question4b === "gal") && (
+                <select
+                  list="unitOfMeasurement"
+                  onChange={(e) => setQuestion4c(e.target.value)}
+                >
+                  <option value="l">Liter</option>
+                  <option value="Tbs">Tablespoons</option>
+                  <option value="in3">Cubic Inches</option>
+                  <option value="cup">Cup</option>
+                  <option value="ft3">Cubic Feet</option>
+                  <option value="gal">Gallons</option>
+                </select>
+              )}
             </td>
             <td>
-              
-            <input
+              <input
                 type="textarea"
                 onChange={(e) => setQuestion4d(e.target.value)}
               ></input>
-              </td>
-            {question4d !== "" &&
-                <h4>{result4}</h4>
-            }
-            </tr>
+            </td>
+            {question4d !== "" && <h4>{result4}</h4>}
+          </tr>
           <tr>
             <td>5</td>
             <td>
@@ -316,8 +383,9 @@ function Test(props) {
             <td>
               <select
                 list="unitOfMeasurement"
-                onChange={(e) => setQuestion5b(e.target.value)}>    
-                <option value=""></option>                    
+                onChange={(e) => setQuestion5b(e.target.value)}
+              >
+                <option value=""></option>
                 <option value="K">Kelvin</option>
                 <option value="C">Celsius</option>
                 <option value="F">Fahrenheit</option>
@@ -331,33 +399,48 @@ function Test(props) {
               </select>
             </td>
             <td>
-              <select
-                list="unitOfMeasurement"
-                onChange={(e) => setQuestion5c(e.target.value)}>      
-                <option value=""></option>                  
-                <option value="K">Kelvin</option>
-                <option value="C">Celsius</option>
-                <option value="F">Fahrenheit</option>
-                <option value="R">Rankine</option>
-                <option value="l">Liter</option>
-                <option value="Tbs">Tablespoons</option>
-                <option value="in3">Cubic Inches</option>
-                <option value="cup">Cup</option>
-                <option value="ft3">Cubic Feet</option>
-                <option value="gal">Gallons</option>
-              </select>
+              {(question5b === "K" ||
+                question5b === "C" ||
+                question5b === "F" ||
+                question5b === "R") && (
+                <select
+                  list="unitOfMeasurement"
+                  onChange={(e) => setQuestion5c(e.target.value)}
+                >
+                  <option value=""></option>
+                  <option value="K">Kelvin</option>
+                  <option value="C">Celsius</option>
+                  <option value="F">Fahrenheit</option>
+                  <option value="R">Rankine</option>
+                </select>
+              )}
+              {(question5b === "l" ||
+                question5b === "Tbs" ||
+                question5b === "in3" ||
+                question5b === "cup" ||
+                question5b === "ft3" ||
+                question5b === "gal") && (
+                <select
+                  list="unitOfMeasurement"
+                  onChange={(e) => setQuestion5c(e.target.value)}
+                >
+                  <option value="l">Liter</option>
+                  <option value="Tbs">Tablespoons</option>
+                  <option value="in3">Cubic Inches</option>
+                  <option value="cup">Cup</option>
+                  <option value="ft3">Cubic Feet</option>
+                  <option value="gal">Gallons</option>
+                </select>
+              )}
             </td>
             <td>
-              
-            <input
+              <input
                 type="textarea"
                 onChange={(e) => setQuestion5d(e.target.value)}
               ></input>
-              </td>
-            {question5d !== "" &&
-                <h4>{result5}</h4>
-            }
-            </tr>
+            </td>
+            {question5d !== "" && <h4>{result5}</h4>}
+          </tr>
         </tbody>
       </Table>
       <button onClick={convertProblems}>Submit Test</button>
