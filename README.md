@@ -1,5 +1,5 @@
 # FlexionChallenge
-This is the coding challenge that I'm completing as part of Flexion's Apprenticeship Program.
+This is the coding challenge that I'm completing as part of Flexion's Apprenticeship Program. I tried to integrate the Flexion Fundamentals into my project as best as I could. 
 
 - To get started with this application, please clone a copy of the directory from :
     https://github.com/Justin-Adams1/FlexionChallenge

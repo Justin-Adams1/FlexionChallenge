@@ -1,4 +1,22 @@
+.test{
+  font-size: large;
+  background-color: gray;
+  color: white;
+  border-style: solid;
+  border: 2px;
+  justify-content: center;
+}
 
+input[type=textarea]{
+  color: black;
+}
+
+input[type=number]{
+  color: black;
+}
+select[type=list]{
+  color: black;
+}
 
 .App {
   text-align: center;

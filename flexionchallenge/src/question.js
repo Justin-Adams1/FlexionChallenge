@@ -1,6 +1,7 @@
 import "./App.css";
 import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
 
 var convert = require("convert-units");
@@ -84,7 +85,7 @@ function Test(props) {
 
   return (
     <Container>
-      <Table striped bordered hover>
+      <Table bordered striped className="test">
         <thead>
           <tr>
             <th>#</th>
@@ -97,7 +98,7 @@ function Test(props) {
         </thead>
         <tbody>
           <tr>
-            <td>1</td>
+            <td style={{ color: 'black' }}>1</td>
             <td>
               <input
                 type="textarea"
@@ -107,6 +108,7 @@ function Test(props) {
             <td>
               <select
                 list="unitOfMeasurement"
+                type="list"
                 onChange={(e) => setQuestion1b(e.target.value)}
               >
                 <option value=""></option>
@@ -129,6 +131,7 @@ function Test(props) {
                 question1b === "R") && (
                 <select
                   list="unitOfMeasurement"
+                  type="list"
                   onChange={(e) => setQuestion1c(e.target.value)}
                 >
                   <option value=""></option>
@@ -146,6 +149,7 @@ function Test(props) {
                 question1b === "gal") && (
                 <select
                   list="unitOfMeasurement"
+                  type="list"
                   onChange={(e) => setQuestion1c(e.target.value)}
                 >
                   <option value="l">Liter</option>
@@ -163,10 +167,12 @@ function Test(props) {
                 onChange={(e) => setQuestion1d(e.target.value)}
               />
             </td>
-            {question1d !== "" && <h4>{result1}</h4>}
+            <td>
+            {question1d !== "" && <h4 style={{ color: 'black' }}>{result1}</h4>}
+            </td>
           </tr>
           <tr>
-            <td>1</td>
+            <td>2</td>
             <td>
               <input
                 type="textarea"
@@ -176,6 +182,7 @@ function Test(props) {
             <td>
               <select
                 list="unitOfMeasurement"
+                type="list"
                 onChange={(e) => setQuestion2b(e.target.value)}
               >
                 <option value=""></option>
@@ -198,6 +205,7 @@ function Test(props) {
                 question2b === "R") && (
                 <select
                   list="unitOfMeasurement"
+                  type="list"
                   onChange={(e) => setQuestion2c(e.target.value)}
                 >
                   <option value=""></option>
@@ -215,6 +223,7 @@ function Test(props) {
                 question2b === "gal") && (
                 <select
                   list="unitOfMeasurement"
+                  type="list"
                   onChange={(e) => setQuestion2c(e.target.value)}
                 >
                   <option value="l">Liter</option>
@@ -232,10 +241,12 @@ function Test(props) {
                 onChange={(e) => setQuestion2d(e.target.value)}
               />
             </td>
+            <td>
             {question2d !== "" && <h4>{result2}</h4>}
+            </td>
           </tr>
           <tr>
-            <td>3</td>
+            <td style={{ color: 'black' }}>3</td>
             <td>
               <input
                 type="textarea"
@@ -245,6 +256,7 @@ function Test(props) {
             <td>
               <select
                 list="unitOfMeasurement"
+                type="list"
                 onChange={(e) => setQuestion3b(e.target.value)}
               >
                 <option value=""></option>
@@ -267,6 +279,7 @@ function Test(props) {
                 question3b === "R") && (
                 <select
                   list="unitOfMeasurement"
+                  type="list"
                   onChange={(e) => setQuestion3c(e.target.value)}
                 >
                   <option value=""></option>
@@ -284,6 +297,7 @@ function Test(props) {
                 question3b === "gal") && (
                 <select
                   list="unitOfMeasurement"
+                  type="list"
                   onChange={(e) => setQuestion3c(e.target.value)}
                 >
                   <option value="l">Liter</option>
@@ -301,7 +315,9 @@ function Test(props) {
                 onChange={(e) => setQuestion3d(e.target.value)}
               ></input>
             </td>
-            {question3d !== "" && <h4>{result3}</h4>}
+            <td>
+            {question3d !== "" && <h4 style={{ color: 'black' }}>{result3}</h4>}
+            </td>
           </tr>
           <tr>
             <td>4</td>
@@ -314,6 +330,7 @@ function Test(props) {
             <td>
               <select
                 list="unitOfMeasurement"
+                type="list"
                 onChange={(e) => setQuestion4b(e.target.value)}
               >
                 <option value=""></option>
@@ -336,6 +353,7 @@ function Test(props) {
                 question4b === "R") && (
                 <select
                   list="unitOfMeasurement"
+                  type="list"
                   onChange={(e) => setQuestion4c(e.target.value)}
                 >
                   <option value=""></option>
@@ -353,6 +371,7 @@ function Test(props) {
                 question4b === "gal") && (
                 <select
                   list="unitOfMeasurement"
+                  type="list"
                   onChange={(e) => setQuestion4c(e.target.value)}
                 >
                   <option value="l">Liter</option>
@@ -370,10 +389,12 @@ function Test(props) {
                 onChange={(e) => setQuestion4d(e.target.value)}
               ></input>
             </td>
-            {question4d !== "" && <h4>{result4}</h4>}
+            <td>
+            {question4d !== "" && <h4 style={{ color: 'black' }}>{result4}</h4>}
+            </td>
           </tr>
           <tr>
-            <td>5</td>
+            <td style={{ color: 'black' }}>5</td>
             <td>
               <input
                 type="textarea"
@@ -383,6 +404,7 @@ function Test(props) {
             <td>
               <select
                 list="unitOfMeasurement"
+                type="list"
                 onChange={(e) => setQuestion5b(e.target.value)}
               >
                 <option value=""></option>
@@ -405,6 +427,7 @@ function Test(props) {
                 question5b === "R") && (
                 <select
                   list="unitOfMeasurement"
+                  type="list"
                   onChange={(e) => setQuestion5c(e.target.value)}
                 >
                   <option value=""></option>
@@ -422,6 +445,7 @@ function Test(props) {
                 question5b === "gal") && (
                 <select
                   list="unitOfMeasurement"
+                  type="list"
                   onChange={(e) => setQuestion5c(e.target.value)}
                 >
                   <option value="l">Liter</option>
@@ -439,11 +463,13 @@ function Test(props) {
                 onChange={(e) => setQuestion5d(e.target.value)}
               ></input>
             </td>
-            {question5d !== "" && <h4>{result5}</h4>}
+            <td>
+            {question5d !== "" && <h4 style={{ color: 'black' }}>{result5}</h4>}
+            </td>
           </tr>
         </tbody>
       </Table>
-      <button onClick={convertProblems}>Submit Test</button>
+      <Button size="lg">Submit Test</Button>
     </Container>
   );
 }
