@@ -2,9 +2,7 @@
   font-size: large;
   background-color: gray;
   color: white;
-  border-style: solid;
-  border: 2px;
-  justify-content: center;
+  border: 2px solid black;
 }
 
 input[type=textarea]{

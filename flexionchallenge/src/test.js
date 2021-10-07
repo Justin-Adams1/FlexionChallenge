@@ -4,6 +4,10 @@ import Row from "react-bootstrap/Row";
 import { useState } from "react";
 import Question from "./question";
 
+// On each test, I originally had it set up to Map through an array of questions on the screen.
+// To ensure that the requirements for the assessment were successfully completed, I created
+// a static version of the test. 
+
 function Test() {
   const [isSelected, setIsSelected] = useState(false);
 
@@ -19,7 +23,7 @@ function Test() {
       ></link>
       <Row>
         <h2>
-          Test for:
+          Enter Student Name:
           <input type="textarea" onChange={enterName} />
         </h2>
       </Row>

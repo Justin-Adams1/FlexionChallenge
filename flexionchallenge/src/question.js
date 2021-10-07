@@ -4,6 +4,16 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
 
+// At the bottom of the Test, there is a submit button. It currently does not do anything, 
+// but I thought that having it there would show what I had in mind for future development.
+
+// Once a test is graded, what would the teacher want to do with the results? I could add their overall
+// grade to a database even with this button. 
+
+// Once a test has been submitted, the page would refresh for the next student. I tried to 
+// keep a design that would be useful for a teacher trying to save time on their grading. They
+// won't use a tool, if using it doesn't save time in a simple way.
+
 var convert = require("convert-units");
 
 function Test(props) {
@@ -50,8 +60,6 @@ function Test(props) {
       if (answer1 === question1d) {
         setResult1("Correct");
       } else setResult1("Incorrect");
-      console.log("question1d", question1d);
-      console.log("answer1", answer1);
       setAnswer2(
         convert(question2a).from(question2b).to(question2c).toFixed(2)
       );
@@ -79,21 +87,24 @@ function Test(props) {
     } catch (error) {}
   };
 
+  // Using a useEffect here for unit conversions serves two purposes: To immediately give feedback
+  // to see if a problem is correct, and to Refresh the DOM after information has been entered.
+
   useEffect(() => {
     convertProblems();
   });
 
   return (
     <Container>
-      <Table bordered striped className="test">
+      <Table striped className="test">
         <thead>
           <tr>
-            <th>#</th>
-            <th>Enter Problem</th>
-            <th>Input Unit of Measure</th>
-            <th>Target Unit of Measure</th>
-            <th>Student Response</th>
-            <th>Grade?</th>
+            <th style={{ textAlign:"center"}}>#</th>
+            <th style={{ textAlign:"center"}}>Initial Value</th>
+            <th style={{ textAlign:"center"}}>Input Unit of Measure</th>
+            <th style={{ textAlign:"center"}}>Target Unit of Measure</th>
+            <th style={{ textAlign:"center"}}>Student Response</th>
+            <th style={{ textAlign:"center"}}>Grade?</th>
           </tr>
         </thead>
         <tbody>
@@ -101,7 +112,7 @@ function Test(props) {
             <td style={{ color: 'black' }}>1</td>
             <td>
               <input
-                type="textarea"
+                type="number"
                 onChange={(e) => setQuestion1a(e.target.value)}
               ></input>
             </td>
@@ -175,7 +186,7 @@ function Test(props) {
             <td>2</td>
             <td>
               <input
-                type="textarea"
+                type="number"
                 onChange={(e) => setQuestion2a(e.target.value)}
               ></input>
             </td>
@@ -249,7 +260,7 @@ function Test(props) {
             <td style={{ color: 'black' }}>3</td>
             <td>
               <input
-                type="textarea"
+                type="number"
                 onChange={(e) => setQuestion3a(e.target.value)}
               ></input>
             </td>
@@ -323,7 +334,7 @@ function Test(props) {
             <td>4</td>
             <td>
               <input
-                type="textarea"
+                type="number"
                 onChange={(e) => setQuestion4a(e.target.value)}
               ></input>
             </td>
@@ -385,7 +396,7 @@ function Test(props) {
             </td>
             <td>
               <input
-                type="textarea"
+                type="number"
                 onChange={(e) => setQuestion4d(e.target.value)}
               ></input>
             </td>
@@ -397,7 +408,7 @@ function Test(props) {
             <td style={{ color: 'black' }}>5</td>
             <td>
               <input
-                type="textarea"
+                type="number"
                 onChange={(e) => setQuestion5a(e.target.value)}
               ></input>
             </td>
