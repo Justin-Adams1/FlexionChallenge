@@ -86,6 +86,12 @@ function Test(props) {
       setRounded4((Math.round(question4d * 10) / 10).toFixed(1));
       setRounded5((Math.round(question5d * 10) / 10).toFixed(1));
 
+      console.log("answer1", answer1);
+      console.log("rounded1", rounded1);
+      console.log("1b", question1b);
+      console.log("1c", question1c)
+
+
       if (answer1 === rounded1) {
         setResult1("Correct");
       } else setResult1("Incorrect");
@@ -131,15 +137,24 @@ function Test(props) {
               <input
                 type="number"
                 onChange={(e) => setQuestion1a(e.target.value)}
+                onKeyDown={(e) => setQuestion1a(e.target.value)}
+                onFocus={(e) => setQuestion1a(e.target.value)}
+                onBlur={(e) => setQuestion1a(e.target.value)}
+                onKeyUp={(e) => setQuestion1a(e.target.value)}
+                onClick={(e) => setQuestion1a(e.target.value)}
               ></input>
             </td>
             <td>
               <select
-                list="unitOfMeasurement"
                 type="list"
                 onChange={(e) => setQuestion1b(e.target.value)}
+                onKeyDown={(e) => setQuestion1b(e.target.value)}
+                onFocus={(e) => setQuestion1b(e.target.value)}
+                onBlur={(e) => setQuestion1b(e.target.value)}
+                onKeyUp={(e) => setQuestion1b(e.target.value)}
+                onClick={(e) => setQuestion1b(e.target.value)}
+                
               >
-                <option value=""></option>
                 <option value="K">Kelvin</option>
                 <option value="C">Celsius</option>
                 <option value="F">Fahrenheit</option>
@@ -158,11 +173,14 @@ function Test(props) {
                 question1b === "F" ||
                 question1b === "R") && (
                 <select
-                  list="unitOfMeasurement"
                   type="list"
                   onChange={(e) => setQuestion1c(e.target.value)}
+                  onKeyDown={(e) => setQuestion1c(e.target.value)}
+                  onFocus={(e) => setQuestion1c(e.target.value)}
+                  onBlur={(e) => setQuestion1c(e.target.value)}
+                  onKeyUp={(e) => setQuestion1c(e.target.value)}
+                  onClick={(e) => setQuestion1c(e.target.value)}
                 >
-                  <option value=""></option>
                   <option value="K">Kelvin</option>
                   <option value="C">Celsius</option>
                   <option value="F">Fahrenheit</option>
@@ -176,9 +194,13 @@ function Test(props) {
                 question1b === "ft3" ||
                 question1b === "gal") && (
                 <select
-                  list="unitOfMeasurement"
                   type="list"
                   onChange={(e) => setQuestion1c(e.target.value)}
+                  onKeyDown={(e) => setQuestion1c(e.target.value)}
+                  onFocus={(e) => setQuestion1c(e.target.value)}
+                  onBlur={(e) => setQuestion1c(e.target.value)}
+                  onKeyUp={(e) => setQuestion1c(e.target.value)}
+                  onClick={(e) => setQuestion1c(e.target.value)}
                 >
                   <option value="l">Liter</option>
                   <option value="Tbs">Tablespoons</option>
@@ -192,7 +214,12 @@ function Test(props) {
             <td>
               <input
                 type="number"
-                onChange={(e) => setQuestion1d(Math.round(e.target.value * 10) / 10)}
+                onChange={(e) => setQuestion1d(e.target.value)}
+                onKeyDown={(e) => setQuestion1d(e.target.value)}
+                onFocus={(e) => setQuestion1d(e.target.value)}
+                onBlur={(e) => setQuestion1d(e.target.value)}
+                onKeyUp={(e) => setQuestion1d(e.target.value)}
+                onClick={(e) => setQuestion1d(e.target.value)}
               />
             </td>
             <td>
@@ -205,13 +232,22 @@ function Test(props) {
               <input
                 type="number"
                 onChange={(e) => setQuestion2a(e.target.value)}
+                onKeyDown={(e) => setQuestion2a(e.target.value)}
+                onFocus={(e) => setQuestion2a(e.target.value)}
+                onBlur={(e) => setQuestion2a(e.target.value)}
+                onKeyUp={(e) => setQuestion2a(e.target.value)}
+                onClick={(e) => setQuestion2a(e.target.value)}
               ></input>
             </td>
             <td>
               <select
-                list="unitOfMeasurement"
                 type="list"
                 onChange={(e) => setQuestion2b(e.target.value)}
+                onKeyDown={(e) => setQuestion2b(e.target.value)}
+                onFocus={(e) => setQuestion2b(e.target.value)}
+                onBlur={(e) => setQuestion2b(e.target.value)}
+                onKeyUp={(e) => setQuestion2b(e.target.value)}
+                onClick={(e) => setQuestion2b(e.target.value)}
               >
                 <option value=""></option>
                 <option value="K">Kelvin</option>
@@ -232,9 +268,13 @@ function Test(props) {
                 question2b === "F" ||
                 question2b === "R") && (
                 <select
-                  list="unitOfMeasurement"
-                  type="list"
-                  onChange={(e) => setQuestion2c(e.target.value)}
+                type="list"
+                onChange={(e) => setQuestion2c(e.target.value)}
+                onKeyDown={(e) => setQuestion2c(e.target.value)}
+                onFocus={(e) => setQuestion2c(e.target.value)}
+                onBlur={(e) => setQuestion2c(e.target.value)}
+                onKeyUp={(e) => setQuestion2c(e.target.value)}
+                onClick={(e) => setQuestion2c(e.target.value)}
                 >
                   <option value=""></option>
                   <option value="K">Kelvin</option>
@@ -250,9 +290,13 @@ function Test(props) {
                 question2b === "ft3" ||
                 question2b === "gal") && (
                 <select
-                  list="unitOfMeasurement"
                   type="list"
                   onChange={(e) => setQuestion2c(e.target.value)}
+                  onKeyDown={(e) => setQuestion2c(e.target.value)}
+                  onFocus={(e) => setQuestion2c(e.target.value)}
+                  onBlur={(e) => setQuestion2c(e.target.value)}
+                  onKeyUp={(e) => setQuestion2c(e.target.value)}
+                  onClick={(e) => setQuestion2c(e.target.value)}
                 >
                   <option value="l">Liter</option>
                   <option value="Tbs">Tablespoons</option>
@@ -267,6 +311,11 @@ function Test(props) {
               <input
                 type="number"
                 onChange={(e) => setQuestion2d(e.target.value)}
+                onKeyDown={(e) => setQuestion2d(e.target.value)}
+                onFocus={(e) => setQuestion2d(e.target.value)}
+                onBlur={(e) => setQuestion2d(e.target.value)}
+                onKeyUp={(e) => setQuestion2d(e.target.value)}
+                onClick={(e) => setQuestion2d(e.target.value)}
               />
             </td>
             <td>
@@ -279,6 +328,11 @@ function Test(props) {
               <input
                 type="number"
                 onChange={(e) => setQuestion3a(e.target.value)}
+                onKeyDown={(e) => setQuestion3a(e.target.value)}
+                onFocus={(e) => setQuestion3a(e.target.value)}
+                onBlur={(e) => setQuestion3a(e.target.value)}
+                onKeyUp={(e) => setQuestion3a(e.target.value)}
+                onClick={(e) => setQuestion3a(e.target.value)}
               ></input>
             </td>
             <td>
@@ -286,6 +340,11 @@ function Test(props) {
                 list="unitOfMeasurement"
                 type="list"
                 onChange={(e) => setQuestion3b(e.target.value)}
+                onKeyDown={(e) => setQuestion3b(e.target.value)}
+                onFocus={(e) => setQuestion3b(e.target.value)}
+                onBlur={(e) => setQuestion3b(e.target.value)}
+                onKeyUp={(e) => setQuestion3b(e.target.value)}
+                onClick={(e) => setQuestion3b(e.target.value)}
               >
                 <option value=""></option>
                 <option value="K">Kelvin</option>
@@ -306,9 +365,13 @@ function Test(props) {
                 question3b === "F" ||
                 question3b === "R") && (
                 <select
-                  list="unitOfMeasurement"
                   type="list"
                   onChange={(e) => setQuestion3c(e.target.value)}
+                  onKeyDown={(e) => setQuestion3c(e.target.value)}
+                  onFocus={(e) => setQuestion3c(e.target.value)}
+                  onBlur={(e) => setQuestion3c(e.target.value)}
+                  onKeyUp={(e) => setQuestion3c(e.target.value)}
+                  onClick={(e) => setQuestion3c(e.target.value)}
                 >
                   <option value=""></option>
                   <option value="K">Kelvin</option>
@@ -324,9 +387,13 @@ function Test(props) {
                 question3b === "ft3" ||
                 question3b === "gal") && (
                 <select
-                  list="unitOfMeasurement"
                   type="list"
                   onChange={(e) => setQuestion3c(e.target.value)}
+                  onKeyDown={(e) => setQuestion3c(e.target.value)}
+                  onFocus={(e) => setQuestion3c(e.target.value)}
+                  onBlur={(e) => setQuestion3c(e.target.value)}
+                  onKeyUp={(e) => setQuestion3c(e.target.value)}
+                  onClick={(e) => setQuestion3c(e.target.value)}
                 >
                   <option value="l">Liter</option>
                   <option value="Tbs">Tablespoons</option>
@@ -341,6 +408,11 @@ function Test(props) {
               <input
                 type="textarea"
                 onChange={(e) => setQuestion3d(e.target.value)}
+                onKeyDown={(e) => setQuestion3d(e.target.value)}
+                onFocus={(e) => setQuestion3d(e.target.value)}
+                onBlur={(e) => setQuestion3d(e.target.value)}
+                onKeyUp={(e) => setQuestion3d(e.target.value)}
+                onClick={(e) => setQuestion3d(e.target.value)}
               ></input>
             </td>
             <td>
@@ -353,13 +425,22 @@ function Test(props) {
               <input
                 type="number"
                 onChange={(e) => setQuestion4a(e.target.value)}
+                onKeyDown={(e) => setQuestion4a(e.target.value)}
+                onFocus={(e) => setQuestion4a(e.target.value)}
+                onBlur={(e) => setQuestion4a(e.target.value)}
+                onKeyUp={(e) => setQuestion4a(e.target.value)}
+                onClick={(e) => setQuestion4a(e.target.value)}
               ></input>
             </td>
             <td>
               <select
-                list="unitOfMeasurement"
                 type="list"
                 onChange={(e) => setQuestion4b(e.target.value)}
+                onKeyDown={(e) => setQuestion4b(e.target.value)}
+                onFocus={(e) => setQuestion4b(e.target.value)}
+                onBlur={(e) => setQuestion4b(e.target.value)}
+                onKeyUp={(e) => setQuestion4b(e.target.value)}
+                onClick={(e) => setQuestion4b(e.target.value)}
               >
                 <option value=""></option>
                 <option value="K">Kelvin</option>
@@ -380,9 +461,13 @@ function Test(props) {
                 question4b === "F" ||
                 question4b === "R") && (
                 <select
-                  list="unitOfMeasurement"
                   type="list"
                   onChange={(e) => setQuestion4c(e.target.value)}
+                  onKeyDown={(e) => setQuestion4c(e.target.value)}
+                  onFocus={(e) => setQuestion4c(e.target.value)}
+                  onBlur={(e) => setQuestion4c(e.target.value)}
+                  onKeyUp={(e) => setQuestion4c(e.target.value)}
+                  onClick={(e) => setQuestion4c(e.target.value)}
                 >
                   <option value=""></option>
                   <option value="K">Kelvin</option>
@@ -398,9 +483,13 @@ function Test(props) {
                 question4b === "ft3" ||
                 question4b === "gal") && (
                 <select
-                  list="unitOfMeasurement"
                   type="list"
                   onChange={(e) => setQuestion4c(e.target.value)}
+                  onKeyDown={(e) => setQuestion4c(e.target.value)}
+                  onFocus={(e) => setQuestion4c(e.target.value)}
+                  onBlur={(e) => setQuestion4c(e.target.value)}
+                  onKeyUp={(e) => setQuestion4c(e.target.value)}
+                  onClick={(e) => setQuestion4c(e.target.value)}
                 >
                   <option value="l">Liter</option>
                   <option value="Tbs">Tablespoons</option>
@@ -415,6 +504,11 @@ function Test(props) {
               <input
                 type="number"
                 onChange={(e) => setQuestion4d(e.target.value)}
+                onKeyDown={(e) => setQuestion4d(e.target.value)}
+                onFocus={(e) => setQuestion4d(e.target.value)}
+                onBlur={(e) => setQuestion4d(e.target.value)}
+                onKeyUp={(e) => setQuestion4d(e.target.value)}
+                onClick={(e) => setQuestion4d(e.target.value)}
               ></input>
             </td>
             <td>
@@ -427,13 +521,22 @@ function Test(props) {
               <input
                 type="number"
                 onChange={(e) => setQuestion5a(e.target.value)}
+                onKeyDown={(e) => setQuestion5a(e.target.value)}
+                onFocus={(e) => setQuestion5a(e.target.value)}
+                onBlur={(e) => setQuestion5a(e.target.value)}
+                onKeyUp={(e) => setQuestion5a(e.target.value)}
+                onClick={(e) => setQuestion5a(e.target.value)}
               ></input>
             </td>
             <td>
               <select
-                list="unitOfMeasurement"
                 type="list"
                 onChange={(e) => setQuestion5b(e.target.value)}
+                onKeyDown={(e) => setQuestion5b(e.target.value)}
+                onFocus={(e) => setQuestion5b(e.target.value)}
+                onBlur={(e) => setQuestion5b(e.target.value)}
+                onKeyUp={(e) => setQuestion5b(e.target.value)}
+                onClick={(e) => setQuestion5b(e.target.value)}
               >
                 <option value=""></option>
                 <option value="K">Kelvin</option>
@@ -454,9 +557,13 @@ function Test(props) {
                 question5b === "F" ||
                 question5b === "R") && (
                 <select
-                  list="unitOfMeasurement"
                   type="list"
                   onChange={(e) => setQuestion5c(e.target.value)}
+                  onKeyDown={(e) => setQuestion5c(e.target.value)}
+                  onFocus={(e) => setQuestion5c(e.target.value)}
+                  onBlur={(e) => setQuestion5c(e.target.value)}
+                  onKeyUp={(e) => setQuestion5c(e.target.value)}
+                  onClick={(e) => setQuestion5c(e.target.value)}
                 >
                   <option value=""></option>
                   <option value="K">Kelvin</option>
@@ -472,9 +579,13 @@ function Test(props) {
                 question5b === "ft3" ||
                 question5b === "gal") && (
                 <select
-                  list="unitOfMeasurement"
                   type="list"
                   onChange={(e) => setQuestion5c(e.target.value)}
+                  onKeyDown={(e) => setQuestion5c(e.target.value)}
+                  onFocus={(e) => setQuestion5c(e.target.value)}
+                  onBlur={(e) => setQuestion5c(e.target.value)}
+                  onKeyUp={(e) => setQuestion5c(e.target.value)}
+                  onClick={(e) => setQuestion5c(e.target.value)}
                 >
                   <option value="l">Liter</option>
                   <option value="Tbs">Tablespoons</option>
@@ -489,6 +600,11 @@ function Test(props) {
               <input
                 type="textarea"
                 onChange={(e) => setQuestion5d(e.target.value)}
+                onKeyDown={(e) => setQuestion5d(e.target.value)}
+                onFocus={(e) => setQuestion5d(e.target.value)}
+                onBlur={(e) => setQuestion5d(e.target.value)}
+                onKeyUp={(e) => setQuestion5d(e.target.value)}
+                onClick={(e) => setQuestion5d(e.target.value)}
               ></input>
             </td>
             <td>
