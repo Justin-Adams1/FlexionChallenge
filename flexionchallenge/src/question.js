@@ -4,13 +4,13 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
 
-// At the bottom of the Test, there is a submit button. It currently does not do anything, 
+// At the bottom of the Test, there is a submit button. It currently does not do anything,
 // but I thought that having it there would show what I had in mind for future development.
 
 // Once a test is graded, what would the teacher want to do with the results? I could add their overall
-// grade to a database even with this button. 
+// grade to a database even with this button.
 
-// Once a test has been submitted, the page would refresh for the next student. I tried to 
+// Once a test has been submitted, the page would refresh for the next student. I tried to
 // keep a design that would be useful for a teacher trying to save time on their grading. They
 // won't use a tool, if using it doesn't save time in a simple way.
 
@@ -57,27 +57,42 @@ function Test(props) {
   const [result5, setResult5] = useState();
   const [rounded5, setRounded5] = useState();
 
-  // In the function ConvertProblems, I incorrectly used toFixed originally to 'round' the input 
-  // for the convert module to then work on. This is incorrect because it is not true rounding, but a 
+  // In the function ConvertProblems, I incorrectly used toFixed originally to 'round' the input
+  // for the convert module to then work on. This is incorrect because it is not true rounding, but a
   // shaving off of the digits. In the examples I used to test the feature, it worked on a surface level
-  // because the numbers I was using just happened to round down, so I didn't notice. 
+  // because the numbers I was using just happened to round down, so I didn't notice.
 
   const convertProblems = () => {
     try {
       setAnswer1(
-        convert((Math.round(question1a * 10) / 10)).from(question1b).to(question1c).toFixed(1)
+        convert(Math.round(question1a * 10) / 10)
+          .from(question1b)
+          .to(question1c)
+          .toFixed(1)
       );
       setAnswer2(
-        convert((Math.round(question2a * 10) / 10)).from(question2b).to(question2c).toFixed(1)
+        convert(Math.round(question2a * 10) / 10)
+          .from(question2b)
+          .to(question2c)
+          .toFixed(1)
       );
       setAnswer3(
-        convert((Math.round(question3a * 10) / 10)).from(question3b).to(question3c).toFixed(1)
+        convert(Math.round(question3a * 10) / 10)
+          .from(question3b)
+          .to(question3c)
+          .toFixed(1)
       );
       setAnswer4(
-        convert((Math.round(question4a * 10) / 10)).from(question4b).to(question4c).toFixed(1)
+        convert(Math.round(question4a * 10) / 10)
+          .from(question4b)
+          .to(question4c)
+          .toFixed(1)
       );
       setAnswer5(
-        convert((Math.round(question5a * 10) / 10)).from(question5b).to(question5c).toFixed(1)
+        convert(Math.round(question5a * 10) / 10)
+          .from(question5b)
+          .to(question5c)
+          .toFixed(1)
       );
 
       setRounded1((Math.round(question1d * 10) / 10).toFixed(1));
@@ -85,12 +100,6 @@ function Test(props) {
       setRounded3((Math.round(question3d * 10) / 10).toFixed(1));
       setRounded4((Math.round(question4d * 10) / 10).toFixed(1));
       setRounded5((Math.round(question5d * 10) / 10).toFixed(1));
-
-      console.log("answer1", answer1);
-      console.log("rounded1", rounded1);
-      console.log("1b", question1b);
-      console.log("1c", question1c)
-
 
       if (answer1 === rounded1) {
         setResult1("Correct");
@@ -117,22 +126,26 @@ function Test(props) {
     convertProblems();
   });
 
+  // Originally, using onChange across all input fields did not provide the required DOM updates
+  // to ensure that each row was calculated properly into the conversion. I've corrected that by
+  // adding event listeners for all the different ways a user can interact with data input on the form.
+
   return (
     <Container>
       <Table striped className="test">
         <thead>
           <tr>
-            <th style={{ textAlign:"center"}}>#</th>
-            <th style={{ textAlign:"center"}}>Initial Value</th>
-            <th style={{ textAlign:"center"}}>Input Unit of Measure</th>
-            <th style={{ textAlign:"center"}}>Target Unit of Measure</th>
-            <th style={{ textAlign:"center"}}>Student Response</th>
-            <th style={{ textAlign:"center"}}>Grade?</th>
+            <th style={{ textAlign: "center" }}>#</th>
+            <th style={{ textAlign: "center" }}>Initial Value</th>
+            <th style={{ textAlign: "center" }}>Input Unit of Measure</th>
+            <th style={{ textAlign: "center" }}>Target Unit of Measure</th>
+            <th style={{ textAlign: "center" }}>Student Response</th>
+            <th style={{ textAlign: "center" }}>Grade?</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td style={{ color: 'black' }}>1</td>
+            <td style={{ color: "black" }}>1</td>
             <td>
               <input
                 type="number"
@@ -153,7 +166,6 @@ function Test(props) {
                 onBlur={(e) => setQuestion1b(e.target.value)}
                 onKeyUp={(e) => setQuestion1b(e.target.value)}
                 onClick={(e) => setQuestion1b(e.target.value)}
-                
               >
                 <option value="K">Kelvin</option>
                 <option value="C">Celsius</option>
@@ -223,7 +235,9 @@ function Test(props) {
               />
             </td>
             <td>
-            {question1d !== "" && <h4 style={{ color: 'black' }}>{result1}</h4>}
+              {question1d !== "" && (
+                <h4 style={{ color: "black" }}>{result1}</h4>
+              )}
             </td>
           </tr>
           <tr>
@@ -268,13 +282,13 @@ function Test(props) {
                 question2b === "F" ||
                 question2b === "R") && (
                 <select
-                type="list"
-                onChange={(e) => setQuestion2c(e.target.value)}
-                onKeyDown={(e) => setQuestion2c(e.target.value)}
-                onFocus={(e) => setQuestion2c(e.target.value)}
-                onBlur={(e) => setQuestion2c(e.target.value)}
-                onKeyUp={(e) => setQuestion2c(e.target.value)}
-                onClick={(e) => setQuestion2c(e.target.value)}
+                  type="list"
+                  onChange={(e) => setQuestion2c(e.target.value)}
+                  onKeyDown={(e) => setQuestion2c(e.target.value)}
+                  onFocus={(e) => setQuestion2c(e.target.value)}
+                  onBlur={(e) => setQuestion2c(e.target.value)}
+                  onKeyUp={(e) => setQuestion2c(e.target.value)}
+                  onClick={(e) => setQuestion2c(e.target.value)}
                 >
                   <option value=""></option>
                   <option value="K">Kelvin</option>
@@ -318,12 +332,10 @@ function Test(props) {
                 onClick={(e) => setQuestion2d(e.target.value)}
               />
             </td>
-            <td>
-            {question2d !== "" && <h4>{result2}</h4>}
-            </td>
+            <td>{question2d !== "" && <h4>{result2}</h4>}</td>
           </tr>
           <tr>
-            <td style={{ color: 'black' }}>3</td>
+            <td style={{ color: "black" }}>3</td>
             <td>
               <input
                 type="number"
@@ -416,7 +428,9 @@ function Test(props) {
               ></input>
             </td>
             <td>
-            {question3d !== "" && <h4 style={{ color: 'black' }}>{result3}</h4>}
+              {question3d !== "" && (
+                <h4 style={{ color: "black" }}>{result3}</h4>
+              )}
             </td>
           </tr>
           <tr>
@@ -512,11 +526,13 @@ function Test(props) {
               ></input>
             </td>
             <td>
-            {question4d !== "" && <h4 style={{ color: 'black' }}>{result4}</h4>}
+              {question4d !== "" && (
+                <h4 style={{ color: "black" }}>{result4}</h4>
+              )}
             </td>
           </tr>
           <tr>
-            <td style={{ color: 'black' }}>5</td>
+            <td style={{ color: "black" }}>5</td>
             <td>
               <input
                 type="number"
@@ -608,7 +624,9 @@ function Test(props) {
               ></input>
             </td>
             <td>
-            {question5d !== "" && <h4 style={{ color: 'black' }}>{result5}</h4>}
+              {question5d !== "" && (
+                <h4 style={{ color: "black" }}>{result5}</h4>
+              )}
             </td>
           </tr>
         </tbody>
