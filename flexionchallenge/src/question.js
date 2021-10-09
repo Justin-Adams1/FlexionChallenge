@@ -23,6 +23,7 @@ function Test(props) {
   const [question1d, setQuestion1d] = useState("");
   const [answer1, setAnswer1] = useState(1);
   const [result1, setResult1] = useState();
+  const [rounded1, setRounded1] = useState();
 
   const [question2a, setQuestion2a] = useState("0");
   const [question2b, setQuestion2b] = useState("F");
@@ -30,6 +31,7 @@ function Test(props) {
   const [question2d, setQuestion2d] = useState("");
   const [answer2, setAnswer2] = useState(1);
   const [result2, setResult2] = useState();
+  const [rounded2, setRounded2] = useState();
 
   const [question3a, setQuestion3a] = useState("0");
   const [question3b, setQuestion3b] = useState("F");
@@ -37,6 +39,7 @@ function Test(props) {
   const [question3d, setQuestion3d] = useState("");
   const [answer3, setAnswer3] = useState(1);
   const [result3, setResult3] = useState();
+  const [rounded3, setRounded3] = useState();
 
   const [question4a, setQuestion4a] = useState("0");
   const [question4b, setQuestion4b] = useState("F");
@@ -44,6 +47,7 @@ function Test(props) {
   const [question4d, setQuestion4d] = useState("");
   const [answer4, setAnswer4] = useState(1);
   const [result4, setResult4] = useState();
+  const [rounded4, setRounded4] = useState();
 
   const [question5a, setQuestion5a] = useState("0");
   const [question5b, setQuestion5b] = useState("F");
@@ -51,37 +55,50 @@ function Test(props) {
   const [question5d, setQuestion5d] = useState("");
   const [answer5, setAnswer5] = useState(1);
   const [result5, setResult5] = useState();
+  const [rounded5, setRounded5] = useState();
+
+  // In the function ConvertProblems, I incorrectly used toFixed originally to 'round' the input 
+  // for the convert module to then work on. This is incorrect because it is not true rounding, but a 
+  // shaving off of the digits. In the examples I used to test the feature, it worked on a surface level
+  // because the numbers I was using just happened to round down, so I didn't notice. 
 
   const convertProblems = () => {
     try {
       setAnswer1(
-        convert(question1a).from(question1b).to(question1c).toFixed(2)
+        convert((Math.round(question1a * 10) / 10)).from(question1b).to(question1c).toFixed(1)
       );
-      if (answer1 === question1d) {
+      setAnswer2(
+        convert(question2a).from(question2b).to(question2c).toFixed(1)
+      );
+      setAnswer3(
+        convert(question3a).from(question3b).to(question3c).toFixed(1)
+      );
+      setAnswer4(
+        convert(question4a).from(question4b).to(question4c).toFixed(1)
+      );
+      setAnswer5(
+        convert(question5a).from(question5b).to(question5c).toFixed(1)
+      );
+
+      setRounded1((Math.round(question1d * 10) / 10).toFixed(1));
+      setRounded2((Math.round(question2d * 10) / 10).toFixed(1));
+      setRounded3((Math.round(question3d * 10) / 10).toFixed(1));
+      setRounded4((Math.round(question4d * 10) / 10).toFixed(1));
+      setRounded5((Math.round(question5d * 10) / 10).toFixed(1));
+
+      if (answer1 === rounded1) {
         setResult1("Correct");
       } else setResult1("Incorrect");
-      setAnswer2(
-        convert(question2a).from(question2b).to(question2c).toFixed(2)
-      );
-      if (answer2 === question2d) {
+      if (answer2 === rounded2) {
         setResult2("Correct");
       } else setResult2("Incorrect");
-      setAnswer3(
-        convert(question3a).from(question3b).to(question3c).toFixed(2)
-      );
-      if (answer3 === question3d) {
+      if (answer3 === rounded3) {
         setResult3("Correct");
       } else setResult3("Incorrect");
-      setAnswer4(
-        convert(question4a).from(question4b).to(question4c).toFixed(2)
-      );
-      if (answer4 === question4d) {
+      if (answer4 === rounded4) {
         setResult4("Correct");
       } else setResult4("Incorrect");
-      setAnswer5(
-        convert(question5a).from(question5b).to(question5c).toFixed(2)
-      );
-      if (answer5 === question5d) {
+      if (answer5 === rounded5) {
         setResult5("Correct");
       } else setResult5("Incorrect");
     } catch (error) {}
@@ -175,7 +192,7 @@ function Test(props) {
             <td>
               <input
                 type="number"
-                onChange={(e) => setQuestion1d(e.target.value)}
+                onChange={(e) => setQuestion1d(Math.round(e.target.value * 10) / 10)}
               />
             </td>
             <td>
