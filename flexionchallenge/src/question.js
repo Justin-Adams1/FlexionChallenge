@@ -68,16 +68,16 @@ function Test(props) {
         convert((Math.round(question1a * 10) / 10)).from(question1b).to(question1c).toFixed(1)
       );
       setAnswer2(
-        convert(question2a).from(question2b).to(question2c).toFixed(1)
+        convert((Math.round(question2a * 10) / 10)).from(question2b).to(question2c).toFixed(1)
       );
       setAnswer3(
-        convert(question3a).from(question3b).to(question3c).toFixed(1)
+        convert((Math.round(question3a * 10) / 10)).from(question3b).to(question3c).toFixed(1)
       );
       setAnswer4(
-        convert(question4a).from(question4b).to(question4c).toFixed(1)
+        convert((Math.round(question4a * 10) / 10)).from(question4b).to(question4c).toFixed(1)
       );
       setAnswer5(
-        convert(question5a).from(question5b).to(question5c).toFixed(1)
+        convert((Math.round(question5a * 10) / 10)).from(question5b).to(question5c).toFixed(1)
       );
 
       setRounded1((Math.round(question1d * 10) / 10).toFixed(1));
