@@ -17,45 +17,45 @@ import { useState, useEffect } from "react";
 var convert = require("convert-units");
 
 function Test(props) {
-  const [question1a, setQuestion1a] = useState("0");
-  const [question1b, setQuestion1b] = useState("F");
-  const [question1c, setQuestion1c] = useState("R");
-  const [question1d, setQuestion1d] = useState("");
-  const [answer1, setAnswer1] = useState(1);
-  const [result1, setResult1] = useState();
-  const [rounded1, setRounded1] = useState();
+  const [question1InitialValueToConvert, setQuestion1InitialValueToConvert] = useState("0");
+  const [question1InitialUnit, setQuestion1InitialUnit] = useState("F");
+  const [question1DesiredUnit, setQuestion1DesiredUnit] = useState("R");
+  const [question1StudentResponse, setQuestion1StudentResponse] = useState("");
+  const [question1CalculatedAnswer, setAnswer1] = useState(1);
+  const [question1Status, setQuestion1Status] = useState();
+  const [question1RoundedStudentResponse, setQuestion1RoundedStudentResponse] = useState();
 
-  const [question2a, setQuestion2a] = useState("0");
-  const [question2b, setQuestion2b] = useState("F");
-  const [question2c, setQuestion2c] = useState("R");
-  const [question2d, setQuestion2d] = useState("");
-  const [answer2, setAnswer2] = useState(1);
-  const [result2, setResult2] = useState();
-  const [rounded2, setRounded2] = useState();
+  const [question2InitialValueToConvert, setQuestion2InitialValueToConvert] = useState("0");
+  const [question2InitialUnit, setQuestion2InitialUnit] = useState("F");
+  const [question2DesiredUnit, setQuestion2DesiredUnit] = useState("R");
+  const [question2StudentResponse, setQuestion2StudentResponse] = useState("");
+  const [question2CalculatedAnswer, setQuestion2CalculatedAnswer] = useState(1);
+  const [question2Status, setQuestion2Status] = useState();
+  const [question2RoundedStudentResponse, setQuestion2RoundedStudentResponse] = useState();
 
-  const [question3a, setQuestion3a] = useState("0");
-  const [question3b, setQuestion3b] = useState("F");
-  const [question3c, setQuestion3c] = useState("R");
-  const [question3d, setQuestion3d] = useState("");
-  const [answer3, setAnswer3] = useState(1);
-  const [result3, setResult3] = useState();
-  const [rounded3, setRounded3] = useState();
+  const [question3InitialValueToConvert, setQuestion3InitialValueToConvert] = useState("0");
+  const [question3InitialUnit, setQuestion3InitialUnit] = useState("F");
+  const [question3DesiredUnit, setQuestion3DesiredUnit] = useState("R");
+  const [question3StudentResponse, setQuestion3StudentResponse] = useState("");
+  const [question3CalculatedAnswer, setQuestion3CalculatedAnswer] = useState(1);
+  const [question3Status, setQuestion3Status] = useState();
+  const [question3RoundedStudentResponse, setQuestion3RoundedStudentResponse] = useState();
 
-  const [question4a, setQuestion4a] = useState("0");
-  const [question4b, setQuestion4b] = useState("F");
-  const [question4c, setQuestion4c] = useState("R");
-  const [question4d, setQuestion4d] = useState("");
-  const [answer4, setAnswer4] = useState(1);
-  const [result4, setResult4] = useState();
-  const [rounded4, setRounded4] = useState();
+  const [question4InitialValueToConvert, setQuestion4InitialValueToConvert] = useState("0");
+  const [question4InitialUnit, setQuestion4InitialUnit] = useState("F");
+  const [question4DesiredUnit, setQuestion4DesiredUnit] = useState("R");
+  const [question4StudentResponse, setQuestion4StudentResponse] = useState("");
+  const [question4CalculatedAnswer, setQuestion4CalculatedAnswer] = useState(1);
+  const [question4Status, setQuestion4Status] = useState();
+  const [question4RoundedStudentResponse, setQuestion4RoundedStudentResponse] = useState();
 
-  const [question5a, setQuestion5a] = useState("0");
-  const [question5b, setQuestion5b] = useState("F");
-  const [question5c, setQuestion5c] = useState("R");
-  const [question5d, setQuestion5d] = useState("");
-  const [answer5, setAnswer5] = useState(1);
-  const [result5, setResult5] = useState();
-  const [rounded5, setRounded5] = useState();
+  const [question5InitialValueToConvert, setQuestion5InitialValueToConvert] = useState("0");
+  const [question5InitialUnit, setQuestion5InitialUnit] = useState("F");
+  const [question5DesiredUnit, setQuestion5DesiredUnit] = useState("R");
+  const [question5StudentResponse, setQuestion5StudentResponse] = useState("");
+  const [question5CalculatedAnswer, setQuestion5CalculatedAnswer] = useState(1);
+  const [question5Status, setQuestion5Status] = useState();
+  const [question5RoundedStudentResponse, setQuestion5RoundedStudentResponse] = useState();
 
   // In the function ConvertProblems, I incorrectly used toFixed originally to 'round' the input
   // for the convert module to then work on. This is incorrect because it is not true rounding, but a
@@ -65,57 +65,57 @@ function Test(props) {
   const convertProblems = () => {
     try {
       setAnswer1(
-        convert(Math.round(question1a * 10) / 10)
-          .from(question1b)
-          .to(question1c)
+        convert(Math.round(question1InitialValueToConvert * 10) / 10)
+          .from(question1InitialUnit)
+          .to(question1DesiredUnit)
           .toFixed(1)
       );
-      setAnswer2(
-        convert(Math.round(question2a * 10) / 10)
-          .from(question2b)
-          .to(question2c)
+      setQuestion2CalculatedAnswer(
+        convert(Math.round(question2InitialValueToConvert * 10) / 10)
+          .from(question2InitialUnit)
+          .to(question2DesiredUnit)
           .toFixed(1)
       );
-      setAnswer3(
-        convert(Math.round(question3a * 10) / 10)
-          .from(question3b)
-          .to(question3c)
+      setQuestion3CalculatedAnswer(
+        convert(Math.round(question3InitialValueToConvert * 10) / 10)
+          .from(question3InitialUnit)
+          .to(question3DesiredUnit)
           .toFixed(1)
       );
-      setAnswer4(
-        convert(Math.round(question4a * 10) / 10)
-          .from(question4b)
-          .to(question4c)
+      setQuestion4CalculatedAnswer(
+        convert(Math.round(question4InitialValueToConvert * 10) / 10)
+          .from(question4InitialUnit)
+          .to(question4DesiredUnit)
           .toFixed(1)
       );
-      setAnswer5(
-        convert(Math.round(question5a * 10) / 10)
-          .from(question5b)
-          .to(question5c)
+      setQuestion5CalculatedAnswer(
+        convert(Math.round(question5InitialValueToConvert * 10) / 10)
+          .from(question5InitialUnit)
+          .to(question5DesiredUnit)
           .toFixed(1)
       );
 
-      setRounded1((Math.round(question1d * 10) / 10).toFixed(1));
-      setRounded2((Math.round(question2d * 10) / 10).toFixed(1));
-      setRounded3((Math.round(question3d * 10) / 10).toFixed(1));
-      setRounded4((Math.round(question4d * 10) / 10).toFixed(1));
-      setRounded5((Math.round(question5d * 10) / 10).toFixed(1));
+      setQuestion1RoundedStudentResponse((Math.round(question1StudentResponse * 10) / 10).toFixed(1));
+      setQuestion2RoundedStudentResponse((Math.round(question2StudentResponse * 10) / 10).toFixed(1));
+      setQuestion3RoundedStudentResponse((Math.round(question3StudentResponse * 10) / 10).toFixed(1));
+      setQuestion4RoundedStudentResponse((Math.round(question4StudentResponse * 10) / 10).toFixed(1));
+      setQuestion5RoundedStudentResponse((Math.round(question5StudentResponse * 10) / 10).toFixed(1));
 
-      if (answer1 === rounded1) {
-        setResult1("Correct");
-      } else setResult1("Incorrect");
-      if (answer2 === rounded2) {
-        setResult2("Correct");
-      } else setResult2("Incorrect");
-      if (answer3 === rounded3) {
-        setResult3("Correct");
-      } else setResult3("Incorrect");
-      if (answer4 === rounded4) {
-        setResult4("Correct");
-      } else setResult4("Incorrect");
-      if (answer5 === rounded5) {
-        setResult5("Correct");
-      } else setResult5("Incorrect");
+      if (question1CalculatedAnswer === question1RoundedStudentResponse) {
+        setQuestion1Status("Correct");
+      } else setQuestion1Status("Incorrect");
+      if (question2CalculatedAnswer === question2RoundedStudentResponse) {
+        setQuestion2Status("Correct");
+      } else setQuestion2Status("Incorrect");
+      if (question3CalculatedAnswer === question3RoundedStudentResponse) {
+        setQuestion3Status("Correct");
+      } else setQuestion3Status("Incorrect");
+      if (question4CalculatedAnswer === question4RoundedStudentResponse) {
+        setQuestion4Status("Correct");
+      } else setQuestion4Status("Incorrect");
+      if (question5CalculatedAnswer === question5RoundedStudentResponse) {
+        setQuestion5Status("Correct");
+      } else setQuestion5Status("Incorrect");
     } catch (error) {}
   };
 
@@ -149,23 +149,23 @@ function Test(props) {
             <td>
               <input
                 type="number"
-                onChange={(e) => setQuestion1a(e.target.value)}
-                onKeyDown={(e) => setQuestion1a(e.target.value)}
-                onFocus={(e) => setQuestion1a(e.target.value)}
-                onBlur={(e) => setQuestion1a(e.target.value)}
-                onKeyUp={(e) => setQuestion1a(e.target.value)}
-                onClick={(e) => setQuestion1a(e.target.value)}
+                onChange={(e) => setQuestion1InitialValueToConvert(e.target.value)}
+                onKeyDown={(e) => setQuestion1InitialValueToConvert(e.target.value)}
+                onFocus={(e) => setQuestion1InitialValueToConvert(e.target.value)}
+                onBlur={(e) => setQuestion1InitialValueToConvert(e.target.value)}
+                onKeyUp={(e) => setQuestion1InitialValueToConvert(e.target.value)}
+                onClick={(e) => setQuestion1InitialValueToConvert(e.target.value)}
               ></input>
             </td>
             <td>
               <select
                 type="list"
-                onChange={(e) => setQuestion1b(e.target.value)}
-                onKeyDown={(e) => setQuestion1b(e.target.value)}
-                onFocus={(e) => setQuestion1b(e.target.value)}
-                onBlur={(e) => setQuestion1b(e.target.value)}
-                onKeyUp={(e) => setQuestion1b(e.target.value)}
-                onClick={(e) => setQuestion1b(e.target.value)}
+                onChange={(e) => setQuestion1InitialUnit(e.target.value)}
+                onKeyDown={(e) => setQuestion1InitialUnit(e.target.value)}
+                onFocus={(e) => setQuestion1InitialUnit(e.target.value)}
+                onBlur={(e) => setQuestion1InitialUnit(e.target.value)}
+                onKeyUp={(e) => setQuestion1InitialUnit(e.target.value)}
+                onClick={(e) => setQuestion1InitialUnit(e.target.value)}
               >
                 <option value="K">Kelvin</option>
                 <option value="C">Celsius</option>
@@ -180,18 +180,18 @@ function Test(props) {
               </select>
             </td>
             <td>
-              {(question1b === "K" ||
-                question1b === "C" ||
-                question1b === "F" ||
-                question1b === "R") && (
+              {(question1InitialUnit === "K" ||
+                question1InitialUnit === "C" ||
+                question1InitialUnit === "F" ||
+                question1InitialUnit === "R") && (
                 <select
                   type="list"
-                  onChange={(e) => setQuestion1c(e.target.value)}
-                  onKeyDown={(e) => setQuestion1c(e.target.value)}
-                  onFocus={(e) => setQuestion1c(e.target.value)}
-                  onBlur={(e) => setQuestion1c(e.target.value)}
-                  onKeyUp={(e) => setQuestion1c(e.target.value)}
-                  onClick={(e) => setQuestion1c(e.target.value)}
+                  onChange={(e) => setQuestion1DesiredUnit(e.target.value)}
+                  onKeyDown={(e) => setQuestion1DesiredUnit(e.target.value)}
+                  onFocus={(e) => setQuestion1DesiredUnit(e.target.value)}
+                  onBlur={(e) => setQuestion1DesiredUnit(e.target.value)}
+                  onKeyUp={(e) => setQuestion1DesiredUnit(e.target.value)}
+                  onClick={(e) => setQuestion1DesiredUnit(e.target.value)}
                 >
                   <option value="K">Kelvin</option>
                   <option value="C">Celsius</option>
@@ -199,20 +199,20 @@ function Test(props) {
                   <option value="R">Rankine</option>
                 </select>
               )}
-              {(question1b === "l" ||
-                question1b === "Tbs" ||
-                question1b === "in3" ||
-                question1b === "cup" ||
-                question1b === "ft3" ||
-                question1b === "gal") && (
+              {(question1InitialUnit === "l" ||
+                question1InitialUnit === "Tbs" ||
+                question1InitialUnit === "in3" ||
+                question1InitialUnit === "cup" ||
+                question1InitialUnit === "ft3" ||
+                question1InitialUnit === "gal") && (
                 <select
                   type="list"
-                  onChange={(e) => setQuestion1c(e.target.value)}
-                  onKeyDown={(e) => setQuestion1c(e.target.value)}
-                  onFocus={(e) => setQuestion1c(e.target.value)}
-                  onBlur={(e) => setQuestion1c(e.target.value)}
-                  onKeyUp={(e) => setQuestion1c(e.target.value)}
-                  onClick={(e) => setQuestion1c(e.target.value)}
+                  onChange={(e) => setQuestion1DesiredUnit(e.target.value)}
+                  onKeyDown={(e) => setQuestion1DesiredUnit(e.target.value)}
+                  onFocus={(e) => setQuestion1DesiredUnit(e.target.value)}
+                  onBlur={(e) => setQuestion1DesiredUnit(e.target.value)}
+                  onKeyUp={(e) => setQuestion1DesiredUnit(e.target.value)}
+                  onClick={(e) => setQuestion1DesiredUnit(e.target.value)}
                 >
                   <option value="l">Liter</option>
                   <option value="Tbs">Tablespoons</option>
@@ -226,17 +226,17 @@ function Test(props) {
             <td>
               <input
                 type="number"
-                onChange={(e) => setQuestion1d(e.target.value)}
-                onKeyDown={(e) => setQuestion1d(e.target.value)}
-                onFocus={(e) => setQuestion1d(e.target.value)}
-                onBlur={(e) => setQuestion1d(e.target.value)}
-                onKeyUp={(e) => setQuestion1d(e.target.value)}
-                onClick={(e) => setQuestion1d(e.target.value)}
+                onChange={(e) => setQuestion1StudentResponse(e.target.value)}
+                onKeyDown={(e) => setQuestion1StudentResponse(e.target.value)}
+                onFocus={(e) => setQuestion1StudentResponse(e.target.value)}
+                onBlur={(e) => setQuestion1StudentResponse(e.target.value)}
+                onKeyUp={(e) => setQuestion1StudentResponse(e.target.value)}
+                onClick={(e) => setQuestion1StudentResponse(e.target.value)}
               />
             </td>
             <td>
-              {question1d !== "" && (
-                <h4 style={{ color: "black" }}>{result1}</h4>
+              {question1StudentResponse !== "" && (
+                <h4 style={{ color: "black" }}>{question1Status}</h4>
               )}
             </td>
           </tr>
@@ -245,23 +245,23 @@ function Test(props) {
             <td>
               <input
                 type="number"
-                onChange={(e) => setQuestion2a(e.target.value)}
-                onKeyDown={(e) => setQuestion2a(e.target.value)}
-                onFocus={(e) => setQuestion2a(e.target.value)}
-                onBlur={(e) => setQuestion2a(e.target.value)}
-                onKeyUp={(e) => setQuestion2a(e.target.value)}
-                onClick={(e) => setQuestion2a(e.target.value)}
+                onChange={(e) => setQuestion2InitialValueToConvert(e.target.value)}
+                onKeyDown={(e) => setQuestion2InitialValueToConvert(e.target.value)}
+                onFocus={(e) => setQuestion2InitialValueToConvert(e.target.value)}
+                onBlur={(e) => setQuestion2InitialValueToConvert(e.target.value)}
+                onKeyUp={(e) => setQuestion2InitialValueToConvert(e.target.value)}
+                onClick={(e) => setQuestion2InitialValueToConvert(e.target.value)}
               ></input>
             </td>
             <td>
               <select
                 type="list"
-                onChange={(e) => setQuestion2b(e.target.value)}
-                onKeyDown={(e) => setQuestion2b(e.target.value)}
-                onFocus={(e) => setQuestion2b(e.target.value)}
-                onBlur={(e) => setQuestion2b(e.target.value)}
-                onKeyUp={(e) => setQuestion2b(e.target.value)}
-                onClick={(e) => setQuestion2b(e.target.value)}
+                onChange={(e) => setQuestion2InitialUnit(e.target.value)}
+                onKeyDown={(e) => setQuestion2InitialUnit(e.target.value)}
+                onFocus={(e) => setQuestion2InitialUnit(e.target.value)}
+                onBlur={(e) => setQuestion2InitialUnit(e.target.value)}
+                onKeyUp={(e) => setQuestion2InitialUnit(e.target.value)}
+                onClick={(e) => setQuestion2InitialUnit(e.target.value)}
               >
                 <option value=""></option>
                 <option value="K">Kelvin</option>
@@ -277,18 +277,18 @@ function Test(props) {
               </select>
             </td>
             <td>
-              {(question2b === "K" ||
-                question2b === "C" ||
-                question2b === "F" ||
-                question2b === "R") && (
+              {(question2InitialUnit === "K" ||
+                question2InitialUnit === "C" ||
+                question2InitialUnit === "F" ||
+                question2InitialUnit === "R") && (
                 <select
                   type="list"
-                  onChange={(e) => setQuestion2c(e.target.value)}
-                  onKeyDown={(e) => setQuestion2c(e.target.value)}
-                  onFocus={(e) => setQuestion2c(e.target.value)}
-                  onBlur={(e) => setQuestion2c(e.target.value)}
-                  onKeyUp={(e) => setQuestion2c(e.target.value)}
-                  onClick={(e) => setQuestion2c(e.target.value)}
+                  onChange={(e) => setQuestion2DesiredUnit(e.target.value)}
+                  onKeyDown={(e) => setQuestion2DesiredUnit(e.target.value)}
+                  onFocus={(e) => setQuestion2DesiredUnit(e.target.value)}
+                  onBlur={(e) => setQuestion2DesiredUnit(e.target.value)}
+                  onKeyUp={(e) => setQuestion2DesiredUnit(e.target.value)}
+                  onClick={(e) => setQuestion2DesiredUnit(e.target.value)}
                 >
                   <option value=""></option>
                   <option value="K">Kelvin</option>
@@ -297,20 +297,20 @@ function Test(props) {
                   <option value="R">Rankine</option>
                 </select>
               )}
-              {(question2b === "l" ||
-                question2b === "Tbs" ||
-                question2b === "in3" ||
-                question2b === "cup" ||
-                question2b === "ft3" ||
-                question2b === "gal") && (
+              {(question2InitialUnit === "l" ||
+                question2InitialUnit === "Tbs" ||
+                question2InitialUnit === "in3" ||
+                question2InitialUnit === "cup" ||
+                question2InitialUnit === "ft3" ||
+                question2InitialUnit === "gal") && (
                 <select
                   type="list"
-                  onChange={(e) => setQuestion2c(e.target.value)}
-                  onKeyDown={(e) => setQuestion2c(e.target.value)}
-                  onFocus={(e) => setQuestion2c(e.target.value)}
-                  onBlur={(e) => setQuestion2c(e.target.value)}
-                  onKeyUp={(e) => setQuestion2c(e.target.value)}
-                  onClick={(e) => setQuestion2c(e.target.value)}
+                  onChange={(e) => setQuestion2DesiredUnit(e.target.value)}
+                  onKeyDown={(e) => setQuestion2DesiredUnit(e.target.value)}
+                  onFocus={(e) => setQuestion2DesiredUnit(e.target.value)}
+                  onBlur={(e) => setQuestion2DesiredUnit(e.target.value)}
+                  onKeyUp={(e) => setQuestion2DesiredUnit(e.target.value)}
+                  onClick={(e) => setQuestion2DesiredUnit(e.target.value)}
                 >
                   <option value="l">Liter</option>
                   <option value="Tbs">Tablespoons</option>
@@ -324,39 +324,39 @@ function Test(props) {
             <td>
               <input
                 type="number"
-                onChange={(e) => setQuestion2d(e.target.value)}
-                onKeyDown={(e) => setQuestion2d(e.target.value)}
-                onFocus={(e) => setQuestion2d(e.target.value)}
-                onBlur={(e) => setQuestion2d(e.target.value)}
-                onKeyUp={(e) => setQuestion2d(e.target.value)}
-                onClick={(e) => setQuestion2d(e.target.value)}
+                onChange={(e) => setQuestion2StudentResponse(e.target.value)}
+                onKeyDown={(e) => setQuestion2StudentResponse(e.target.value)}
+                onFocus={(e) => setQuestion2StudentResponse(e.target.value)}
+                onBlur={(e) => setQuestion2StudentResponse(e.target.value)}
+                onKeyUp={(e) => setQuestion2StudentResponse(e.target.value)}
+                onClick={(e) => setQuestion2StudentResponse(e.target.value)}
               />
             </td>
-            <td>{question2d !== "" && <h4>{result2}</h4>}</td>
+            <td>{question2StudentResponse !== "" && <h4>{question2Status}</h4>}</td>
           </tr>
           <tr>
             <td style={{ color: "black" }}>3</td>
             <td>
               <input
                 type="number"
-                onChange={(e) => setQuestion3a(e.target.value)}
-                onKeyDown={(e) => setQuestion3a(e.target.value)}
-                onFocus={(e) => setQuestion3a(e.target.value)}
-                onBlur={(e) => setQuestion3a(e.target.value)}
-                onKeyUp={(e) => setQuestion3a(e.target.value)}
-                onClick={(e) => setQuestion3a(e.target.value)}
+                onChange={(e) => setQuestion3InitialValueToConvert(e.target.value)}
+                onKeyDown={(e) => setQuestion3InitialValueToConvert(e.target.value)}
+                onFocus={(e) => setQuestion3InitialValueToConvert(e.target.value)}
+                onBlur={(e) => setQuestion3InitialValueToConvert(e.target.value)}
+                onKeyUp={(e) => setQuestion3InitialValueToConvert(e.target.value)}
+                onClick={(e) => setQuestion3InitialValueToConvert(e.target.value)}
               ></input>
             </td>
             <td>
               <select
                 list="unitOfMeasurement"
                 type="list"
-                onChange={(e) => setQuestion3b(e.target.value)}
-                onKeyDown={(e) => setQuestion3b(e.target.value)}
-                onFocus={(e) => setQuestion3b(e.target.value)}
-                onBlur={(e) => setQuestion3b(e.target.value)}
-                onKeyUp={(e) => setQuestion3b(e.target.value)}
-                onClick={(e) => setQuestion3b(e.target.value)}
+                onChange={(e) => setQuestion3InitialUnit(e.target.value)}
+                onKeyDown={(e) => setQuestion3InitialUnit(e.target.value)}
+                onFocus={(e) => setQuestion3InitialUnit(e.target.value)}
+                onBlur={(e) => setQuestion3InitialUnit(e.target.value)}
+                onKeyUp={(e) => setQuestion3InitialUnit(e.target.value)}
+                onClick={(e) => setQuestion3InitialUnit(e.target.value)}
               >
                 <option value=""></option>
                 <option value="K">Kelvin</option>
@@ -372,18 +372,18 @@ function Test(props) {
               </select>
             </td>
             <td>
-              {(question3b === "K" ||
-                question3b === "C" ||
-                question3b === "F" ||
-                question3b === "R") && (
+              {(question3InitialUnit === "K" ||
+                question3InitialUnit === "C" ||
+                question3InitialUnit === "F" ||
+                question3InitialUnit === "R") && (
                 <select
                   type="list"
-                  onChange={(e) => setQuestion3c(e.target.value)}
-                  onKeyDown={(e) => setQuestion3c(e.target.value)}
-                  onFocus={(e) => setQuestion3c(e.target.value)}
-                  onBlur={(e) => setQuestion3c(e.target.value)}
-                  onKeyUp={(e) => setQuestion3c(e.target.value)}
-                  onClick={(e) => setQuestion3c(e.target.value)}
+                  onChange={(e) => setQuestion3DesiredUnit(e.target.value)}
+                  onKeyDown={(e) => setQuestion3DesiredUnit(e.target.value)}
+                  onFocus={(e) => setQuestion3DesiredUnit(e.target.value)}
+                  onBlur={(e) => setQuestion3DesiredUnit(e.target.value)}
+                  onKeyUp={(e) => setQuestion3DesiredUnit(e.target.value)}
+                  onClick={(e) => setQuestion3DesiredUnit(e.target.value)}
                 >
                   <option value=""></option>
                   <option value="K">Kelvin</option>
@@ -392,20 +392,20 @@ function Test(props) {
                   <option value="R">Rankine</option>
                 </select>
               )}
-              {(question3b === "l" ||
-                question3b === "Tbs" ||
-                question3b === "in3" ||
-                question3b === "cup" ||
-                question3b === "ft3" ||
-                question3b === "gal") && (
+              {(question3InitialUnit === "l" ||
+                question3InitialUnit === "Tbs" ||
+                question3InitialUnit === "in3" ||
+                question3InitialUnit === "cup" ||
+                question3InitialUnit === "ft3" ||
+                question3InitialUnit === "gal") && (
                 <select
                   type="list"
-                  onChange={(e) => setQuestion3c(e.target.value)}
-                  onKeyDown={(e) => setQuestion3c(e.target.value)}
-                  onFocus={(e) => setQuestion3c(e.target.value)}
-                  onBlur={(e) => setQuestion3c(e.target.value)}
-                  onKeyUp={(e) => setQuestion3c(e.target.value)}
-                  onClick={(e) => setQuestion3c(e.target.value)}
+                  onChange={(e) => setQuestion3DesiredUnit(e.target.value)}
+                  onKeyDown={(e) => setQuestion3DesiredUnit(e.target.value)}
+                  onFocus={(e) => setQuestion3DesiredUnit(e.target.value)}
+                  onBlur={(e) => setQuestion3DesiredUnit(e.target.value)}
+                  onKeyUp={(e) => setQuestion3DesiredUnit(e.target.value)}
+                  onClick={(e) => setQuestion3DesiredUnit(e.target.value)}
                 >
                   <option value="l">Liter</option>
                   <option value="Tbs">Tablespoons</option>
@@ -419,17 +419,17 @@ function Test(props) {
             <td>
               <input
                 type="textarea"
-                onChange={(e) => setQuestion3d(e.target.value)}
-                onKeyDown={(e) => setQuestion3d(e.target.value)}
-                onFocus={(e) => setQuestion3d(e.target.value)}
-                onBlur={(e) => setQuestion3d(e.target.value)}
-                onKeyUp={(e) => setQuestion3d(e.target.value)}
-                onClick={(e) => setQuestion3d(e.target.value)}
+                onChange={(e) => setQuestion3StudentResponse(e.target.value)}
+                onKeyDown={(e) => setQuestion3StudentResponse(e.target.value)}
+                onFocus={(e) => setQuestion3StudentResponse(e.target.value)}
+                onBlur={(e) => setQuestion3StudentResponse(e.target.value)}
+                onKeyUp={(e) => setQuestion3StudentResponse(e.target.value)}
+                onClick={(e) => setQuestion3StudentResponse(e.target.value)}
               ></input>
             </td>
             <td>
-              {question3d !== "" && (
-                <h4 style={{ color: "black" }}>{result3}</h4>
+              {question3StudentResponse !== "" && (
+                <h4 style={{ color: "black" }}>{question3Status}</h4>
               )}
             </td>
           </tr>
@@ -438,23 +438,23 @@ function Test(props) {
             <td>
               <input
                 type="number"
-                onChange={(e) => setQuestion4a(e.target.value)}
-                onKeyDown={(e) => setQuestion4a(e.target.value)}
-                onFocus={(e) => setQuestion4a(e.target.value)}
-                onBlur={(e) => setQuestion4a(e.target.value)}
-                onKeyUp={(e) => setQuestion4a(e.target.value)}
-                onClick={(e) => setQuestion4a(e.target.value)}
+                onChange={(e) => setQuestion4InitialValueToConvert(e.target.value)}
+                onKeyDown={(e) => setQuestion4InitialValueToConvert(e.target.value)}
+                onFocus={(e) => setQuestion4InitialValueToConvert(e.target.value)}
+                onBlur={(e) => setQuestion4InitialValueToConvert(e.target.value)}
+                onKeyUp={(e) => setQuestion4InitialValueToConvert(e.target.value)}
+                onClick={(e) => setQuestion4InitialValueToConvert(e.target.value)}
               ></input>
             </td>
             <td>
               <select
                 type="list"
-                onChange={(e) => setQuestion4b(e.target.value)}
-                onKeyDown={(e) => setQuestion4b(e.target.value)}
-                onFocus={(e) => setQuestion4b(e.target.value)}
-                onBlur={(e) => setQuestion4b(e.target.value)}
-                onKeyUp={(e) => setQuestion4b(e.target.value)}
-                onClick={(e) => setQuestion4b(e.target.value)}
+                onChange={(e) => setQuestion4InitialUnit(e.target.value)}
+                onKeyDown={(e) => setQuestion4InitialUnit(e.target.value)}
+                onFocus={(e) => setQuestion4InitialUnit(e.target.value)}
+                onBlur={(e) => setQuestion4InitialUnit(e.target.value)}
+                onKeyUp={(e) => setQuestion4InitialUnit(e.target.value)}
+                onClick={(e) => setQuestion4InitialUnit(e.target.value)}
               >
                 <option value=""></option>
                 <option value="K">Kelvin</option>
@@ -470,18 +470,18 @@ function Test(props) {
               </select>
             </td>
             <td>
-              {(question4b === "K" ||
-                question4b === "C" ||
-                question4b === "F" ||
-                question4b === "R") && (
+              {(question4InitialUnit === "K" ||
+                question4InitialUnit === "C" ||
+                question4InitialUnit === "F" ||
+                question4InitialUnit === "R") && (
                 <select
                   type="list"
-                  onChange={(e) => setQuestion4c(e.target.value)}
-                  onKeyDown={(e) => setQuestion4c(e.target.value)}
-                  onFocus={(e) => setQuestion4c(e.target.value)}
-                  onBlur={(e) => setQuestion4c(e.target.value)}
-                  onKeyUp={(e) => setQuestion4c(e.target.value)}
-                  onClick={(e) => setQuestion4c(e.target.value)}
+                  onChange={(e) => setQuestion4DesiredUnit(e.target.value)}
+                  onKeyDown={(e) => setQuestion4DesiredUnit(e.target.value)}
+                  onFocus={(e) => setQuestion4DesiredUnit(e.target.value)}
+                  onBlur={(e) => setQuestion4DesiredUnit(e.target.value)}
+                  onKeyUp={(e) => setQuestion4DesiredUnit(e.target.value)}
+                  onClick={(e) => setQuestion4DesiredUnit(e.target.value)}
                 >
                   <option value=""></option>
                   <option value="K">Kelvin</option>
@@ -490,20 +490,20 @@ function Test(props) {
                   <option value="R">Rankine</option>
                 </select>
               )}
-              {(question4b === "l" ||
-                question4b === "Tbs" ||
-                question4b === "in3" ||
-                question4b === "cup" ||
-                question4b === "ft3" ||
-                question4b === "gal") && (
+              {(question4InitialUnit === "l" ||
+                question4InitialUnit === "Tbs" ||
+                question4InitialUnit === "in3" ||
+                question4InitialUnit === "cup" ||
+                question4InitialUnit === "ft3" ||
+                question4InitialUnit === "gal") && (
                 <select
                   type="list"
-                  onChange={(e) => setQuestion4c(e.target.value)}
-                  onKeyDown={(e) => setQuestion4c(e.target.value)}
-                  onFocus={(e) => setQuestion4c(e.target.value)}
-                  onBlur={(e) => setQuestion4c(e.target.value)}
-                  onKeyUp={(e) => setQuestion4c(e.target.value)}
-                  onClick={(e) => setQuestion4c(e.target.value)}
+                  onChange={(e) => setQuestion4DesiredUnit(e.target.value)}
+                  onKeyDown={(e) => setQuestion4DesiredUnit(e.target.value)}
+                  onFocus={(e) => setQuestion4DesiredUnit(e.target.value)}
+                  onBlur={(e) => setQuestion4DesiredUnit(e.target.value)}
+                  onKeyUp={(e) => setQuestion4DesiredUnit(e.target.value)}
+                  onClick={(e) => setQuestion4DesiredUnit(e.target.value)}
                 >
                   <option value="l">Liter</option>
                   <option value="Tbs">Tablespoons</option>
@@ -517,18 +517,16 @@ function Test(props) {
             <td>
               <input
                 type="number"
-                onChange={(e) => setQuestion4d(e.target.value)}
-                onKeyDown={(e) => setQuestion4d(e.target.value)}
-                onFocus={(e) => setQuestion4d(e.target.value)}
-                onBlur={(e) => setQuestion4d(e.target.value)}
-                onKeyUp={(e) => setQuestion4d(e.target.value)}
-                onClick={(e) => setQuestion4d(e.target.value)}
+                onChange={(e) => setQuestion4StudentResponse(e.target.value)}
+                onKeyDown={(e) => setQuestion4StudentResponse(e.target.value)}
+                onFocus={(e) => setQuestion4StudentResponse(e.target.value)}
+                onBlur={(e) => setQuestion4StudentResponse(e.target.value)}
+                onKeyUp={(e) => setQuestion4StudentResponse(e.target.value)}
+                onClick={(e) => setQuestion4StudentResponse(e.target.value)}
               ></input>
             </td>
             <td>
-              {question4d !== "" && (
-                <h4 style={{ color: "black" }}>{result4}</h4>
-              )}
+            <td>{question4StudentResponse !== "" && <h4>{question4Status}</h4>}</td>
             </td>
           </tr>
           <tr>
@@ -536,23 +534,23 @@ function Test(props) {
             <td>
               <input
                 type="number"
-                onChange={(e) => setQuestion5a(e.target.value)}
-                onKeyDown={(e) => setQuestion5a(e.target.value)}
-                onFocus={(e) => setQuestion5a(e.target.value)}
-                onBlur={(e) => setQuestion5a(e.target.value)}
-                onKeyUp={(e) => setQuestion5a(e.target.value)}
-                onClick={(e) => setQuestion5a(e.target.value)}
+                onChange={(e) => setQuestion5InitialValueToConvert(e.target.value)}
+                onKeyDown={(e) => setQuestion5InitialValueToConvert(e.target.value)}
+                onFocus={(e) => setQuestion5InitialValueToConvert(e.target.value)}
+                onBlur={(e) => setQuestion5InitialValueToConvert(e.target.value)}
+                onKeyUp={(e) => setQuestion5InitialValueToConvert(e.target.value)}
+                onClick={(e) => setQuestion5InitialValueToConvert(e.target.value)}
               ></input>
             </td>
             <td>
               <select
                 type="list"
-                onChange={(e) => setQuestion5b(e.target.value)}
-                onKeyDown={(e) => setQuestion5b(e.target.value)}
-                onFocus={(e) => setQuestion5b(e.target.value)}
-                onBlur={(e) => setQuestion5b(e.target.value)}
-                onKeyUp={(e) => setQuestion5b(e.target.value)}
-                onClick={(e) => setQuestion5b(e.target.value)}
+                onChange={(e) => setQuestion5InitialUnit(e.target.value)}
+                onKeyDown={(e) => setQuestion5InitialUnit(e.target.value)}
+                onFocus={(e) => setQuestion5InitialUnit(e.target.value)}
+                onBlur={(e) => setQuestion5InitialUnit(e.target.value)}
+                onKeyUp={(e) => setQuestion5InitialUnit(e.target.value)}
+                onClick={(e) => setQuestion5InitialUnit(e.target.value)}
               >
                 <option value=""></option>
                 <option value="K">Kelvin</option>
@@ -568,18 +566,18 @@ function Test(props) {
               </select>
             </td>
             <td>
-              {(question5b === "K" ||
-                question5b === "C" ||
-                question5b === "F" ||
-                question5b === "R") && (
+              {(question5InitialUnit === "K" ||
+                question5InitialUnit === "C" ||
+                question5InitialUnit === "F" ||
+                question5InitialUnit === "R") && (
                 <select
                   type="list"
-                  onChange={(e) => setQuestion5c(e.target.value)}
-                  onKeyDown={(e) => setQuestion5c(e.target.value)}
-                  onFocus={(e) => setQuestion5c(e.target.value)}
-                  onBlur={(e) => setQuestion5c(e.target.value)}
-                  onKeyUp={(e) => setQuestion5c(e.target.value)}
-                  onClick={(e) => setQuestion5c(e.target.value)}
+                  onChange={(e) => setQuestion5DesiredUnit(e.target.value)}
+                  onKeyDown={(e) => setQuestion5DesiredUnit(e.target.value)}
+                  onFocus={(e) => setQuestion5DesiredUnit(e.target.value)}
+                  onBlur={(e) => setQuestion5DesiredUnit(e.target.value)}
+                  onKeyUp={(e) => setQuestion5DesiredUnit(e.target.value)}
+                  onClick={(e) => setQuestion5DesiredUnit(e.target.value)}
                 >
                   <option value=""></option>
                   <option value="K">Kelvin</option>
@@ -588,20 +586,20 @@ function Test(props) {
                   <option value="R">Rankine</option>
                 </select>
               )}
-              {(question5b === "l" ||
-                question5b === "Tbs" ||
-                question5b === "in3" ||
-                question5b === "cup" ||
-                question5b === "ft3" ||
-                question5b === "gal") && (
+              {(question5InitialUnit === "l" ||
+                question5InitialUnit === "Tbs" ||
+                question5InitialUnit === "in3" ||
+                question5InitialUnit === "cup" ||
+                question5InitialUnit === "ft3" ||
+                question5InitialUnit === "gal") && (
                 <select
                   type="list"
-                  onChange={(e) => setQuestion5c(e.target.value)}
-                  onKeyDown={(e) => setQuestion5c(e.target.value)}
-                  onFocus={(e) => setQuestion5c(e.target.value)}
-                  onBlur={(e) => setQuestion5c(e.target.value)}
-                  onKeyUp={(e) => setQuestion5c(e.target.value)}
-                  onClick={(e) => setQuestion5c(e.target.value)}
+                  onChange={(e) => setQuestion5DesiredUnit(e.target.value)}
+                  onKeyDown={(e) => setQuestion5DesiredUnit(e.target.value)}
+                  onFocus={(e) => setQuestion5DesiredUnit(e.target.value)}
+                  onBlur={(e) => setQuestion5DesiredUnit(e.target.value)}
+                  onKeyUp={(e) => setQuestion5DesiredUnit(e.target.value)}
+                  onClick={(e) => setQuestion5DesiredUnit(e.target.value)}
                 >
                   <option value="l">Liter</option>
                   <option value="Tbs">Tablespoons</option>
@@ -615,17 +613,17 @@ function Test(props) {
             <td>
               <input
                 type="textarea"
-                onChange={(e) => setQuestion5d(e.target.value)}
-                onKeyDown={(e) => setQuestion5d(e.target.value)}
-                onFocus={(e) => setQuestion5d(e.target.value)}
-                onBlur={(e) => setQuestion5d(e.target.value)}
-                onKeyUp={(e) => setQuestion5d(e.target.value)}
-                onClick={(e) => setQuestion5d(e.target.value)}
+                onChange={(e) => setQuestion5StudentResponse(e.target.value)}
+                onKeyDown={(e) => setQuestion5StudentResponse(e.target.value)}
+                onFocus={(e) => setQuestion5StudentResponse(e.target.value)}
+                onBlur={(e) => setQuestion5StudentResponse(e.target.value)}
+                onKeyUp={(e) => setQuestion5StudentResponse(e.target.value)}
+                onClick={(e) => setQuestion5StudentResponse(e.target.value)}
               ></input>
             </td>
             <td>
-              {question5d !== "" && (
-                <h4 style={{ color: "black" }}>{result5}</h4>
+              {question5StudentResponse !== "" && (
+                <h4 style={{ color: "black" }}>{question5Status}</h4>
               )}
             </td>
           </tr>
